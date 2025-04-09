@@ -445,6 +445,27 @@ a {
   transform: scale(1.2);
 }
 
+.connect-with-us a .email-default {
+  display: block;
+}
+.connect-with-us a .email-hover {
+  display: none;
+}
+.connect-with-us a:hover .email-default {
+  display: none;
+}
+.connect-with-us a:hover .email-hover {
+  display: block;
+}
+
+/* Existing color transition rules will handle the color change */
+.connect-with-us a:hover {
+  color: #fff !important; /* Force white color on hover */
+}
+.connect-with-us a:hover svg {
+  stroke: currentColor; /* Inherit from parent color */
+}
+
 @media (max-width: 768px) {
   .connect-with-us-container h2 {
     font-size: 1.8rem;
