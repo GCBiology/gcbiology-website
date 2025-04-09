@@ -7333,7 +7333,7 @@ const ud = () => {
                 children: "GenCore Biology"
             }), N.jsx("h3", {
                 className: "title-description",
-                children: "Advocating Science"
+                children: "Advocating Science test"
             }), N.jsx("button", {
                 ref: m,
                 className: "title-scroll-down bounce",
