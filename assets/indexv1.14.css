@@ -236,13 +236,6 @@
   justify-content: center;
 }
 
-.card {
-  transition: transform 0.5s ease-in-out;
-}
-
-.translate-card {
-  transition-delay: 0.5s;
-}
 
 @media (max-width: 768px) {
   .card-section {
