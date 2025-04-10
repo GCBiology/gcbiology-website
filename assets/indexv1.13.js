@@ -1,3 +1,15 @@
+const smoothScroll = (e) => {
+    e.preventDefault();
+    const targetId = e.currentTarget.getAttribute("href").slice(1);
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+        targetElement.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }
+};
+
 (function() {
     const x = document.createElement("link").relList;
     if (x && x.supports && x.supports("modulepreload")) return;
@@ -7432,7 +7444,33 @@ const ud = () => {
         return () => {}
     }, []), N.jsxs("div", {
         id: "root",
-        children: [N.jsxs("div", {
+        children: [
+        N.jsxs("nav", {
+            className: "sticky-menu",
+            children: [
+                N.jsx("a", {
+                    href: "#about",
+                    onClick: smoothScroll,
+                    children: "About"
+                }),
+                N.jsx("a", {
+                    href: "#team",
+                    onClick: smoothScroll,
+                    children: "Team"
+                }),
+                N.jsx("a", {
+                    href: "#connect",
+                    onClick: smoothScroll,
+                    children: "Connect"
+                }),
+                N.jsx("a", {
+                    href: "https://hcb.hackclub.com/donations/start/gcbiology",
+                    target: "_blank",
+                    children: "Donate"
+                })
+            ]
+        }),
+        N.jsxs("div", {
             className: "title",
             children: [N.jsx("h1", {
                 className: "title-text",
@@ -7456,6 +7494,7 @@ const ud = () => {
         }), N.jsxs("div", {
             ref: x,
             className: "about-us",
+            id: "about",
             children: [N.jsx("h2", {
                 children: "About Us"
             }), N.jsx("p", {
@@ -7496,6 +7535,7 @@ const ud = () => {
                 })]
             }), N.jsxs("div", {
                 className: "meet-the-creators",
+                id: "team",
                 children: [N.jsx("h2", {
                     children: "Meet The Creators"
                 }), N.jsxs("div", {
@@ -7574,6 +7614,7 @@ const ud = () => {
             })]
         }), N.jsxs("div", {
             className: "connect-with-us-container",
+            id: "connect",
             children: [N.jsx("h2", {
                 children: "Connect With Us"
             }), N.jsxs("div", {
