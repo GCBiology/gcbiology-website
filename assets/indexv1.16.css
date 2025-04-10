@@ -26,7 +26,6 @@
   background: linear-gradient(135deg, #384fa5, #123473);
 }
 
-/* ▼ Add this sticky menu CSS ▼ */
 .sticky-menu {
   position: fixed;
   top: 0;
@@ -54,6 +53,21 @@
 .sticky-menu a:hover {
   background: rgba(255, 255, 255, 0.1);
   transform: translateY(-2px);
+}
+
+
+#about,
+#team,
+#connect {
+  scroll-margin-top: 70px; /* Matches sticky menu height */
+}
+
+@media (max-width: 768px) {
+  #about,
+  #team,
+  #connect {
+    scroll-margin-top: 60px; /* Smaller offset for mobile */
+  }
 }
 
 /* Add margin to first section to account for sticky menu */
