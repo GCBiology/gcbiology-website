@@ -7459,6 +7459,11 @@ const ud = () => {
                     children: "Team"
                 }),
                 N.jsx("a", {
+                    href: "#partners",
+                    onClick: smoothScroll,
+                    children: "Partners"
+                }),
+                N.jsx("a", {
                     href: "#connect",
                     onClick: smoothScroll,
                     children: "Connect"
@@ -7612,7 +7617,50 @@ const ud = () => {
                     })]
                 })]
             })]
-        }), N.jsxs("div", {
+        }),
+
+
+        N.jsxs("div", {
+    className: "partners",
+    id: "partners",
+    children: [
+        N.jsx("h2", {
+            children: "Our Partners"
+        }),
+        N.jsxs("div", {
+            className: "partner-logos",
+            children: [
+                N.jsxs("div", {
+                    className: "partner-logo",
+                    children: [
+                        N.jsx("img", {
+                            src: "Rotary-International-logo.png",
+                            alt: "Rotary International"
+                        }),
+                        N.jsx("p", {
+                            children: "Rotary International"
+                        })
+                    ]
+                }),
+                N.jsxs("div", {
+                    className: "partner-logo",
+                    children: [
+                        N.jsx("img", {
+                            src: "matter-ngo-logo.png",
+                            alt: "Matter NGO"
+                        }),
+                        N.jsx("p", {
+                            children: "Matter NGO"
+                        })
+                    ]
+                })
+            ]
+        })
+    ]
+}),
+
+
+        N.jsxs("div", {
             className: "connect-with-us-container",
             id: "connect",
             children: [N.jsx("h2", {
