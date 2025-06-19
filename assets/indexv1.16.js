@@ -7647,10 +7647,10 @@ const ud = () => {
                     children: [
                         N.jsx("img", {
                             src: "matter-ngo-logo.png",
-                            alt: "Matter NGO"
+                            alt: "matter"
                         }),
                         N.jsx("p", {
-                            children: "Matter NGO"
+                            children: "matter"
                         })
                     ]
                 })
