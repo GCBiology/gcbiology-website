@@ -7496,170 +7496,241 @@ const ud = () => {
                 src: "/wave.svg",
                 alt: "Wave"
             })]
-        }), N.jsxs("div", {
+        }),
+
+        // ABOUT US SECTION - Now independent
+        N.jsxs("div", {
             ref: x,
             className: "about-us",
             id: "about",
-            children: [N.jsx("h2", {
-                children: "About Us"
-            }), N.jsx("p", {
-                children: "GenCore Biology is a 501(c)(3) sponsored nonprofit organization. Our mission is to give students and minorities in underprivileged areas fair access to comprehensive biology information, thereby empowering them. Our goals are to inspire the upcoming generation of diverse scientists and innovators, promote academic excellence, and close the educational gap."
-            }), N.jsxs("div", {
-                className: "card-section",
-                children: [N.jsxs("div", {
-                    className: "card",
-                    children: [N.jsx("div", {
-                        className: "card-icon",
-                        children: N.jsx(td, {})
-                    }), N.jsx("h3", {
-                        children: "Equal Access to Education"
-                    }), N.jsx("p", {
-                        children: "Our goal is to give minorities and students in underserved communities equitable access to a thorough biology education so they can thrive academically."
-                    })]
-                }), N.jsxs("div", {
-                    ref: p,
-                    className: `card middle ${M?"translate-card":""}`,
-                    children: [N.jsx("div", {
-                        className: "card-icon",
-                        children: N.jsx(id, {})
-                    }), N.jsx("h3", {
-                        children: "Inspiring Future Scientists"
-                    }), N.jsx("p", {
-                        children: "We strive to motivate the next generation of varied scientists and inventors to choose professions in biology and other scientific domains."
-                    })]
-                }), N.jsxs("div", {
-                    className: "card",
-                    children: [N.jsx("div", {
-                        className: "card-icon",
-                        children: N.jsx(rd, {})
-                    }), N.jsx("h3", {
-                        children: "Promoting Academic Excellence"
-                    }), N.jsx("p", {
-                        children: "We close the educational gap by fostering academic success by offering mentorship and tools to assist students succeed in biology and related disciplines."
-                    })]
-                })]
-            }), N.jsxs("div", {
-                className: "meet-the-creators",
-                id: "team",
-                children: [N.jsx("h2", {
-                    children: "Meet The Creators"
-                }), N.jsxs("div", {
-                    className: "creator-card-section",
-                    children: [N.jsxs("div", {
-                        className: "creator-card",
-                        children: [N.jsx("img", {
-                            className: "creator-card-icon",
-                            src: "/Gabriel-Cacho-Headshot.jpg",
-                            alt: "Gabriel Cacho"
-                        }), N.jsx("h1", {
-                            children: N.jsx("a", {
-                                href: "https://www.linkedin.com/in/gabriel-cacho-89b169305/",
-                                target: "_blank",
-                                rel: "noopener noreferrer",
-                                children: "Gabriel Cacho"
-                            })
-                        }), N.jsx("h2", {
-                            children: N.jsx("a", {
-                                href: "https://www.hillsboroughschools.org/lennard",
-                                target: "_blank",
-                                rel: "noopener noreferrer",
-                                children: "Lennard High School"
-                            })
-                        }), N.jsx("h3", {
-                            children: "CEO and Founder"
-                        }), N.jsx("p", {})]
-                    }), N.jsxs("div", {
-                        className: "creator-card",
-                        children: [N.jsx("img", {
-                            className: "creator-card-icon",
-                            src: "/Illia-Shkliar-Headshot.jpg",
-                            alt: "Illia Shkliar"
-                        }), N.jsx("h1", {
-                            children: N.jsx("a", {
-                                href: "https://www.linkedin.com/in/illia-shkliar/",
-                                target: "_blank",
-                                rel: "noopener noreferrer",
-                                children: "Illia Shkliar"
-                            })
-                        }), N.jsx("h2", {
-                            children: N.jsx("a", {
-                                href: "https://chs.srvusd.net/",
-                                target: "_blank",
-                                rel: "noopener noreferrer",
-                                children: "California High School"
-                            })
-                        }), N.jsx("h3", {
-                            children: "President"
-                        }), N.jsx("p", {})]
-                    }), N.jsxs("div", {
-                        className: "creator-card",
-                        children: [N.jsx("img", {
-                            className: "creator-card-icon",
-                            src: "/River-Riley-Headshot.jpg",
-                            alt: "River Riley"
-                        }), N.jsx("h1", {
-                            children: N.jsx("a", {
-                                href: "https://www.linkedin.com/in/river-riley-9336842b5/",
-                                target: "_blank",
-                                rel: "noopener noreferrer",
-                                children: "River Riley"
-                            })
-                        }), N.jsx("h2", {
-                            children: N.jsx("a", {
-                                href: "https://abtech.edu/",
-                                target: "_blank",
-                                rel: "noopener noreferrer",
-                                children: "A-B Tech Community College"
-                            })
-                        }), N.jsx("h3", {
-                            children: "Chief Technical Officer (CTO)"
-                        }), N.jsx("p", {})]
-                    })]
-                })]
-            })]
-        }),
-
-
-        N.jsxs("div", {
-    className: "partners",
-    id: "partners",
-    children: [
-        N.jsx("h2", {
-            children: "Our Partners"
-        }),
-        N.jsxs("div", {
-            className: "partner-logos",
             children: [
-                N.jsxs("div", {
-                    className: "partner-logo",
-                    children: [
-                        N.jsx("img", {
-                            src: "Rotary-International-logo.png",
-                            alt: "Rotary International"
-                        }),
-                        N.jsx("p", {
-                            children: "Rotary International"
-                        })
-                    ]
+                N.jsx("h2", {
+                    children: "About Us"
+                }),
+                N.jsx("p", {
+                    children: "GenCore Biology is a 501(c)(3) sponsored nonprofit organization. Our mission is to give students and minorities in underprivileged areas fair access to comprehensive biology information, thereby empowering them. Our goals are to inspire the upcoming generation of diverse scientists and innovators, promote academic excellence, and close the educational gap."
                 }),
                 N.jsxs("div", {
-                    className: "partner-logo",
+                    className: "card-section",
                     children: [
-                        N.jsx("img", {
-                            src: "matter-ngo-logo.png",
-                            alt: "matter"
+                        N.jsxs("div", {
+                            className: "card",
+                            children: [
+                                N.jsx("div", {
+                                    className: "card-icon",
+                                    children: N.jsx(td, {})
+                                }),
+                                N.jsx("h3", {
+                                    children: "Equal Access to Education"
+                                }),
+                                N.jsx("p", {
+                                    children: "Our goal is to give minorities and students in underserved communities equitable access to a thorough biology education so they can thrive academically."
+                                })
+                            ]
                         }),
-                        N.jsx("p", {
-                            children: "matter"
+                        N.jsxs("div", {
+                            ref: p,
+                            className: `card middle ${M ? "translate-card" : ""}`,
+                            children: [
+                                N.jsx("div", {
+                                    className: "card-icon",
+                                    children: N.jsx(id, {})
+                                }),
+                                N.jsx("h3", {
+                                    children: "Inspiring Future Scientists"
+                                }),
+                                N.jsx("p", {
+                                    children: "We strive to motivate the next generation of varied scientists and inventors to choose professions in biology and other scientific domains."
+                                })
+                            ]
+                        }),
+                        N.jsxs("div", {
+                            className: "card",
+                            children: [
+                                N.jsx("div", {
+                                    className: "card-icon",
+                                    children: N.jsx(rd, {})
+                                }),
+                                N.jsx("h3", {
+                                    children: "Promoting Academic Excellence"
+                                }),
+                                N.jsx("p", {
+                                    children: "We close the educational gap by fostering academic success by offering mentorship and tools to assist students succeed in biology and related disciplines."
+                                })
+                            ]
                         })
                     ]
                 })
             ]
-        })
-    ]
-}),
+        }),
 
+        // TEAM SECTION - Now independent
+        N.jsxs("div", {
+            className: "meet-the-creators",
+            id: "team",
+            children: [
+                N.jsx("h2", {
+                    children: "Meet The Creators"
+                }),
+                N.jsxs("div", {
+                    className: "creator-card-section",
+                    children: [
+                        N.jsxs("div", {
+                            className: "creator-card",
+                            children: [
+                                N.jsx("img", {
+                                    className: "creator-card-icon",
+                                    src: "/Gabriel-Cacho-Headshot.jpg",
+                                    alt: "Gabriel Cacho"
+                                }),
+                                N.jsx("h1", {
+                                    children: N.jsx("a", {
+                                        href: "https://www.linkedin.com/in/gabriel-cacho-89b169305/",
+                                        target: "_blank",
+                                        rel: "noopener noreferrer",
+                                        children: "Gabriel Cacho"
+                                    })
+                                }),
+                                N.jsx("h2", {
+                                    children: N.jsx("a", {
+                                        href: "https://www.hillsboroughschools.org/lennard",
+                                        target: "_blank",
+                                        rel: "noopener noreferrer",
+                                        children: "Lennard High School"
+                                    })
+                                }),
+                                N.jsx("h3", {
+                                    children: "CEO and Founder"
+                                }),
+                                N.jsx("p", {})
+                            ]
+                        }),
+                        N.jsxs("div", {
+                            className: "creator-card",
+                            children: [
+                                N.jsx("img", {
+                                    className: "creator-card-icon",
+                                    src: "/Illia-Shkliar-Headshot.jpg",
+                                    alt: "Illia Shkliar"
+                                }),
+                                N.jsx("h1", {
+                                    children: N.jsx("a", {
+                                        href: "https://www.linkedin.com/in/illia-shkliar/",
+                                        target: "_blank",
+                                        rel: "noopener noreferrer",
+                                        children: "Illia Shkliar"
+                                    })
+                                }),
+                                N.jsx("h2", {
+                                    children: N.jsx("a", {
+                                        href: "https://chs.srvusd.net/",
+                                        target: "_blank",
+                                        rel: "noopener noreferrer",
+                                        children: "California High School"
+                                    })
+                                }),
+                                N.jsx("h3", {
+                                    children: "President"
+                                }),
+                                N.jsx("p", {})
+                            ]
+                        }),
+                        N.jsxs("div", {
+                            className: "creator-card",
+                            children: [
+                                N.jsx("img", {
+                                    className: "creator-card-icon",
+                                    src: "/River-Riley-Headshot.jpg",
+                                    alt: "River Riley"
+                                }),
+                                N.jsx("h1", {
+                                    children: N.jsx("a", {
+                                        href: "https://www.linkedin.com/in/river-riley-9336842b5/",
+                                        target: "_blank",
+                                        rel: "noopener noreferrer",
+                                        children: "River Riley"
+                                    })
+                                }),
+                                N.jsx("h2", {
+                                    children: N.jsx("a", {
+                                        href: "https://www.ncsu.edu/",
+                                        target: "_blank",
+                                        rel: "noopener noreferrer",
+                                        children: "NC State"
+                                    })
+                                }),
+                                N.jsx("h3", {
+                                    children: "Chief Technical Officer (CTO)"
+                                }),
+                                N.jsx("p", {})
+                            ]
+                        })
+                    ]
+                })
+            ]
+        }),
 
+        // PARTNERS SECTION - Now independent
+        N.jsxs("div", {
+            className: "partners",
+            id: "partners",
+            children: [
+                N.jsx("h2", {
+                    children: "Our Partners"
+                }),
+                N.jsxs("div", {
+                    className: "partner-logos",
+                    children: [
+                        N.jsxs("div", {
+                            className: "partner-logo",
+                            children: [
+                                N.jsx("a", {
+                                    href: "https://www.rotary.org/en",
+                                    target: "_blank",
+                                    rel: "noopener noreferrer",
+                                    children: N.jsx("img", {
+                                        src: "Rotary-International-logo.png",
+                                        alt: "Rotary International"
+                                    })
+                                }),
+                                N.jsx("a", {
+                                    href: "https://www.rotary.org/en",
+                                    target: "_blank",
+                                    rel: "noopener noreferrer",
+                                    children: N.jsx("p", {
+                                        children: "Rotary International"
+                                    })
+                                })
+                            ]
+                        }),
+                        N.jsxs("div", {
+                            className: "partner-logo",
+                            children: [
+                                N.jsx("a", {
+                                    href: "https://www.matter.ngo/",
+                                    target: "_blank",
+                                    rel: "noopener noreferrer",
+                                    children: N.jsx("img", {
+                                        src: "matter-ngo-logo.png",
+                                        alt: "Matter"
+                                    })
+                                }),
+                                N.jsx("a", {
+                                    href: "https://www.matter.ngo/",
+                                    target: "_blank",
+                                    rel: "noopener noreferrer",
+                                    children: N.jsx("p", {
+                                        children: "Matter"
+                                    })
+                                })
+                            ]
+                        })
+                    ]
+                })
+            ]
+        }),
+
+        // CONNECT SECTION
         N.jsxs("div", {
             className: "connect-with-us-container",
             id: "connect",
@@ -7711,7 +7782,10 @@ const ud = () => {
                     })]
                 })]
             })]
-        }), N.jsx("footer", {
+        }),
+
+        // FOOTER
+        N.jsx("footer", {
             className: "footer",
             children: N.jsxs("p", {
                 children: ["© 2025 GenCore Biology. All rights reserved. Designed by ", N.jsx("a", {
@@ -7725,6 +7799,7 @@ const ud = () => {
         })]
     })
 };
+
 Kf.createRoot(document.getElementById("root")).render(N.jsx(ut.StrictMode, {
     children: N.jsx(ud, {})
 }));
