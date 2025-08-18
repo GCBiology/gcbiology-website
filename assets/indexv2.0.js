@@ -7663,6 +7663,35 @@ const ud = () => {
                                     children: "Chief Technical Officer (CTO)"
                                 }),
                                 N.jsx("p", {})
+                                }),
+                        N.jsxs("div", {
+                            className: "creator-card",
+                            children: [
+                                N.jsx("img", {
+                                    className: "creator-card-icon",
+                                    src: "/Minsoo-Chae-Headshot.jpg",
+                                    alt: "Minsoo Chae"
+                                }),
+                                N.jsx("h1", {
+                                    children: N.jsx("a", {
+                                        href: "https://www.linkedin.com/in/minsoo-chae1/",
+                                        target: "_blank",
+                                        rel: "noopener noreferrer",
+                                        children: "Minsoo Chae"
+                                    })
+                                }),
+                                N.jsx("h2", {
+                                    children: N.jsx("a", {
+                                        href: "https://www.csw.org/",
+                                        target: "_blank",
+                                        rel: "noopener noreferrer",
+                                        children: "Cambridge School of Weston"
+                                    })
+                                }),
+                                N.jsx("h3", {
+                                    children: "Outreach Director"
+                                }),
+                                N.jsx("p", {})
                             ]
                         })
                     ]
