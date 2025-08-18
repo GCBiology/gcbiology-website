@@ -7663,7 +7663,8 @@ const ud = () => {
                                     children: "Chief Technical Officer (CTO)"
                                 }),
                                 N.jsx("p", {})
-                                }),
+                            ]
+                        }),
                         N.jsxs("div", {
                             className: "creator-card",
                             children: [
