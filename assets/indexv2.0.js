@@ -7623,10 +7623,10 @@ const ud = () => {
                                 }),
                                 N.jsx("h2", {
                                     children: N.jsx("a", {
-                                        href: "https://chs.srvusd.net/",
+                                        href: "https://www.ucmerced.edu/",
                                         target: "_blank",
                                         rel: "noopener noreferrer",
-                                        children: "California High School"
+                                        children: "University of California Merced"
                                     })
                                 }),
                                 N.jsx("h3", {
