@@ -7600,7 +7600,7 @@ const ud = () => {
                                     })
                                 }),
                                 N.jsx("h3", {
-                                    children: "CEO and Founder"
+                                    children: "Executive Director and Founder"
                                 }),
                                 N.jsx("p", {})
                             ]
