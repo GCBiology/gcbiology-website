@@ -109,52 +109,36 @@ async function fetchPuzzleFromFireworks(seed: number, supabase: ReturnType<typeo
   }
 
   if (!promptTemplate) {
-    promptTemplate = `You are a biology puzzle generator for an educational game called BioConnections. Given a seed number, generate a puzzle with exactly 4 groups of 4 biology terms each (16 terms total).
-
-Rules:
-- Each term must be a single word or very short phrase (max 2 words), all uppercase
-- Terms should be college intro biology level
-- Groups should be color-coded by difficulty:
-  - YELLOW (easiest): obvious grouping, terms clearly belong together
-  - GREEN (medium-easy): requires some bio knowledge
-  - BLUE (medium-hard): requires solid bio knowledge, some terms could seem to fit other groups
-  - PURPLE (hardest): tricky, terms are deliberately misleading and could appear to fit other groups
-- The puzzle should have red herrings: terms in one group that LOOK like they belong in another group. This is what makes the game fun and challenging.
-- All 16 terms must be unique
-- Terms should be real biology terms that a college student would encounter
-- Cover diverse topics: cell biology, genetics, ecology, biochemistry, anatomy, microbiology, evolution, etc.
-
-Respond with ONLY valid JSON, no markdown, no explanation:
-{
-  "groups": [
-    {
-      "category": "Short category description",
-      "difficulty": "yellow",
-      "terms": ["TERM1", "TERM2", "TERM3", "TERM4"]
-    },
-    {
-      "category": "Short category description",
-      "difficulty": "green",
-      "terms": ["TERM1", "TERM2", "TERM3", "TERM4"]
-    },
-    {
-      "category": "Short category description",
-      "difficulty": "blue",
-      "terms": ["TERM1", "TERM2", "TERM3", "TERM4"]
-    },
-    {
-      "category": "Short category description",
-      "difficulty": "purple",
-      "terms": ["TERM1", "TERM2", "TERM3", "TERM4"]
-    }
-  ]
-}
-
-Seed number: \${seed}
-Each seed must produce a completely different puzzle.`;
+    throw new Error("System prompt is missing from the 'game_config' database table. Please add it to generate puzzles!");
   }
 
-  const systemPrompt = promptTemplate.replace("${seed}", String(seed)).replace("{seed}", String(seed));
+  let systemPrompt = promptTemplate.replace("${seed}", String(seed)).replace("{seed}", String(seed));
+
+  try {
+    const { data: recentPuzzles } = await supabase
+      .from("daily_puzzles")
+      .select("puzzle")
+      .order("date", { ascending: false })
+      .limit(7);
+
+    if (recentPuzzles && recentPuzzles.length > 0) {
+      const usedTerms = new Set<string>();
+      for (const row of recentPuzzles) {
+        if (row.puzzle && Array.isArray(row.puzzle.groups)) {
+          for (const group of row.puzzle.groups) {
+            if (Array.isArray(group.terms)) {
+              for (const t of group.terms) usedTerms.add(t);
+            }
+          }
+        }
+      }
+      if (usedTerms.size > 0) {
+        systemPrompt += "\n\nCRITICAL DESIGN RULE 4: DO NOT use any of the following recently used terms across any of the groups:\n" + Array.from(usedTerms).join(", ");
+      }
+    }
+  } catch (err) {
+    console.error("Failed to fetch recent puzzles:", err);
+  }
 
   const response = await fetch(
     "https://api.fireworks.ai/inference/v1/chat/completions",
@@ -184,9 +168,11 @@ Each seed must produce a completely different puzzle.`;
   const rawContent: string = data?.choices?.[0]?.message?.content;
   if (!rawContent) throw new Error("Fireworks API returned no content");
 
+  const cleanedContent = rawContent.replace(/^```(json)?\s*/i, '').replace(/\s*```$/i, '').trim();
+
   let parsed: unknown;
   try {
-    parsed = JSON.parse(rawContent);
+    parsed = JSON.parse(cleanedContent);
   } catch {
     throw new Error(`Fireworks API returned invalid JSON: ${rawContent}`);
   }
