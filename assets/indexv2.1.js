@@ -7821,14 +7821,8 @@ const ud = () => {
         // FOOTER
         N.jsx("footer", {
             className: "footer",
-            children: N.jsxs("p", {
-                children: ["© 2025 GenCore Biology. All rights reserved. Designed by ", N.jsx("a", {
-                    href: "https://www.linkedin.com/in/dacian-longmore-009771342",
-                    children: "Dacian Longmore"
-                }), " and maintained by ", N.jsx("a", {
-                    href: "https://www.linkedin.com/in/river-riley-9336842b5/",
-                    children: "River Riley"
-                }), "."]
+            children: N.jsx("p", {
+                children: "© 2026 GenCore Biology. All rights reserved."
             })
         })]
     })
