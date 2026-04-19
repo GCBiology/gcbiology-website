@@ -522,12 +522,26 @@
   /* Navigation */
   .sticky-menu {
     padding: 0.8rem 1rem;
-    gap: 1rem;
+    gap: 0.8rem;
+    justify-content: flex-start;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Hide scrollbar for a cleaner look */
+  .sticky-menu::-webkit-scrollbar {
+    display: none;
+  }
+  .sticky-menu {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
   }
 
   .sticky-menu a {
-    font-size: 0.9rem;
-    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.6rem;
+    flex-shrink: 0;
   }
 
   /* Scroll margins */
