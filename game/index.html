@@ -181,7 +181,7 @@
     #grid {
       width: 100%;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 10px;
     }
 
@@ -193,7 +193,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: clamp(13px, 2.2vw, 18px);
+      font-size: clamp(11px, 2vw, 15px);
       font-weight: 700;
       text-transform: uppercase;
       color: var(--text);
@@ -205,9 +205,19 @@
       letter-spacing: 0.02em;
       padding: 8px 6px;
       text-align: center;
-      overflow-wrap: break-word;
-      word-break: keep-all;
-      line-height: 1.25;
+      white-space: nowrap;
+      overflow: hidden;
+      line-height: 1.15;
+    }
+
+    .grid-tile.long-word {
+      font-size: clamp(10px, 1.6vw, 13px);
+      letter-spacing: 0;
+    }
+
+    .grid-tile.very-long-word {
+      font-size: clamp(9px, 1.3vw, 11px);
+      letter-spacing: -0.02em;
     }
 
     .grid-tile:hover {
@@ -494,29 +504,34 @@
     }
 
     /* ---- Responsive ---- */
-    @media (max-width: 400px) {
-      #header { padding: 12px 14px; }
-      #game-title { font-size: 18px; }
+    /* Adjust for narrow screens or short screens (like mobile browsers with tall URL bars) */
+    @media (max-width: 450px), (max-height: 750px) {
+      #header { padding: 10px 14px; }
+      #game-title { font-size: 16px; }
       #brand-link { font-size: 11px; }
       #header-right { font-size: 11px; }
-      #game-area { padding: 14px 12px; }
+      #game-area { padding: 8px 12px; }
+      .instruction { padding: 4px 0; margin-bottom: 6px; font-size: 13px; }
       .grid-tile {
-        min-height: 60px;
-        font-size: clamp(11px, 3.5vw, 14px);
-        border-radius: 8px;
-        padding: 6px 4px;
+        min-height: min(12.5vh, 56px);
+        font-size: clamp(10px, 3.2vw, 13px);
+        border-radius: 6px;
+        padding: 4px;
       }
-      #grid { gap: 7px; }
-      .ctrl-btn { padding: 12px 18px; font-size: 13px; }
-      .solved-bar { padding: 14px 14px; border-radius: 10px; }
-      .solved-bar .solved-category { font-size: 14px; }
-      .solved-bar .solved-terms { font-size: 12px; }
+      #grid { gap: 6px; }
+      #controls { gap: 8px; margin-top: 4px; }
+      .ctrl-btn { padding: 10px 14px; font-size: 12px; }
+      #mistakes-area { margin-top: 8px; margin-bottom: 8px; font-size: 14px; }
+      .solved-bar { padding: 10px 12px; border-radius: 8px; }
+      .solved-bar .solved-category { font-size: 13px; margin-bottom: 2px; }
+      .solved-bar .solved-terms { font-size: 11px; }
     }
 
     @media (min-width: 600px) {
+      #game-area { max-width: 800px; }
       .grid-tile {
         min-height: 84px;
-        font-size: 18px;
+        font-size: clamp(13px, 2vw, 16px);
       }
       #grid { gap: 12px; }
       .solved-bar { padding: 20px 24px; }
@@ -680,6 +695,11 @@
       remainingTerms.forEach(term => {
         const tile = document.createElement("div");
         tile.className = "grid-tile";
+        if (term.length > 11) {
+          tile.classList.add("very-long-word");
+        } else if (term.length > 8) {
+          tile.classList.add("long-word");
+        }
         tile.textContent = term;
         tile.dataset.term = term;
         if (selectedTerms.includes(term)) {
