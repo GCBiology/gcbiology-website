@@ -7794,7 +7794,7 @@ const ud = () => {
                         children: "Instagram"
                     })]
                 }), N.jsxs("a", {
-                    href: "mailto:contact@gcbiology.net",
+                    href: "mailto:gcbiologypartnerships@gmail.com",
                     target: "_blank",
                     rel: "noopener noreferrer",
                     children: [N.jsx(ld, {}), N.jsx("span", {
