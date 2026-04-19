@@ -7472,6 +7472,10 @@ const ud = () => {
                     href: "https://hcb.hackclub.com/donations/start/gcbiology",
                     target: "_blank",
                     children: "Donate"
+                }),
+                N.jsx("a", {
+                    href: "/game",
+                    children: "Game"
                 })
             ]
         }),
