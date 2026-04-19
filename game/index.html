@@ -602,6 +602,11 @@
     // ---- Config ----
     const SUPABASE_URL = "https://fzeerogaurizcafngnjg.supabase.co";
     const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ6ZWVyb2dhdXJpemNhZm5nbmpnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY1NDQ3MDYsImV4cCI6MjA5MjEyMDcwNn0.tqufRPYmV_mp9YBW2QG3kp-a2zRG61OMWRHLt2thWEQ";
+    const API_HEADERS = {
+      "apikey": SUPABASE_ANON_KEY,
+      "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
+      "Content-Type": "application/json"
+    };
 
     const STATE_KEY_PREFIX = "bioconnections-state-";
     const STATS_KEY = "bioconnections-stats";
@@ -639,11 +644,7 @@
     async function init() {
       try {
         const resp = await fetch(`${SUPABASE_URL}/functions/v1/daily-puzzle`, {
-          headers: {
-            "apikey": SUPABASE_ANON_KEY,
-            "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
-            "Content-Type": "application/json"
-          }
+          headers: API_HEADERS
         });
         if (!resp.ok) throw new Error("Failed to fetch daily puzzle");
         const data = await resp.json();
@@ -714,15 +715,16 @@
       updateButtonStates();
     }
 
-    function renderSolvedGroups() {
+    function renderSolvedGroups(cascade = false) {
       solvedGroupsEl.innerHTML = "";
       // Sort by difficulty order for display
       const sorted = [...solvedGroups].sort(
         (a, b) => DIFFICULTY_ORDER.indexOf(a.difficulty) - DIFFICULTY_ORDER.indexOf(b.difficulty)
       );
-      sorted.forEach(group => {
+      sorted.forEach((group, idx) => {
         const bar = document.createElement("div");
-        bar.className = `solved-bar ${group.difficulty}`;
+        const isCascading = cascade && idx === sorted.length - 1;
+        bar.className = `solved-bar ${group.difficulty}${isCascading ? " cascade" : ""}`;
         bar.innerHTML = `
           <div class="solved-category">${escapeHtml(group.category)}</div>
           <div class="solved-terms">${group.terms.map(escapeHtml).join(", ")}</div>
@@ -735,11 +737,7 @@
       const remaining = 4 - mistakes;
       for (let i = 0; i < 4; i++) {
         const dot = document.getElementById(`dot-${i}`);
-        if (i < remaining) {
-          dot.classList.remove("used");
-        } else {
-          dot.classList.add("used");
-        }
+        dot.classList.toggle("used", i >= remaining);
       }
     }
 
@@ -797,11 +795,7 @@
       try {
         const resp = await fetch(`${SUPABASE_URL}/functions/v1/validate-group`, {
           method: "POST",
-          headers: {
-            "apikey": SUPABASE_ANON_KEY,
-            "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
-            "Content-Type": "application/json"
-          },
+          headers: API_HEADERS,
           body: JSON.stringify({
             date: gameDate,
             selected_terms: selectedTerms,
@@ -936,29 +930,13 @@
         remainingTerms = remainingTerms.filter(t => !normalizedTerms.includes(t));
 
         // Render with cascade class
-        renderSolvedGroupsCascade(i);
+        renderSolvedGroups(true);
         renderGrid();
       }
     }
 
-    function renderSolvedGroupsCascade(cascadeIndex) {
-      solvedGroupsEl.innerHTML = "";
-      const sorted = [...solvedGroups].sort(
-        (a, b) => DIFFICULTY_ORDER.indexOf(a.difficulty) - DIFFICULTY_ORDER.indexOf(b.difficulty)
-      );
-      sorted.forEach((group, idx) => {
-        const bar = document.createElement("div");
-        const isCascading = idx >= (sorted.length - 1 - cascadeIndex) && idx === sorted.length - 1;
-        bar.className = `solved-bar ${group.difficulty}${isCascading ? " cascade" : ""}`;
-        bar.innerHTML = `
-          <div class="solved-category">${escapeHtml(group.category)}</div>
-          <div class="solved-terms">${group.terms.map(escapeHtml).join(", ")}</div>
-        `;
-        solvedGroupsEl.appendChild(bar);
-      });
-    }
 
-    // ---- End-game modal ----
+// ---- End-game modal ----
     function showEndModal(won) {
       const heading = document.getElementById("modal-heading");
       heading.textContent = won ? "BioConnections solved!" : "Better luck tomorrow";
@@ -1010,13 +988,6 @@
     // ---- Countdown ----
     function getSecondsUntilMidnightEastern() {
       const now = new Date();
-      // Get current date in Eastern time
-      const easternDate = new Intl.DateTimeFormat("en-CA", {
-        timeZone: "America/New_York",
-        year: "numeric",
-        month: "2-digit",
-        day: "2-digit",
-      }).format(now);
       // Get current time components in Eastern
       const timeParts = new Intl.DateTimeFormat("en-US", {
         timeZone: "America/New_York",
