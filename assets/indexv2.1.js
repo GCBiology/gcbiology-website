@@ -7694,7 +7694,7 @@ const ud = () => {
                                     })
                                 }),
                                 N.jsx("h3", {
-                                    children: "Outreach Director"
+                                    children: "Chief Operating Officer"
                                 }),
                                 N.jsx("p", {})
                             ]
