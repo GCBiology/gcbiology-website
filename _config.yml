@@ -1,0 +1,5 @@
+# GitHub Pages builds this branch with Jekyll. Keep preserved source out of
+# the published site; /game/index.html is only a redirect to the homepage.
+exclude:
+  - _archive
+  - supabase

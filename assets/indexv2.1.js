@@ -7467,15 +7467,6 @@ const ud = () => {
                     href: "#connect",
                     onClick: smoothScroll,
                     children: "Connect"
-                }),
-                N.jsx("a", {
-                    href: "https://hcb.hackclub.com/donations/start/gcbiology",
-                    target: "_blank",
-                    children: "Donate"
-                }),
-                N.jsx("a", {
-                    href: "/game",
-                    children: "Game"
                 })
             ]
         }),
@@ -7489,11 +7480,13 @@ const ud = () => {
                 children: "Advocating science"
             }), N.jsx("button", {
                 ref: m,
+                type: "button",
                 className: "title-scroll-down bounce",
+                "aria-label": "Scroll to About Us",
                 onClick: A,
                 children: N.jsx("img", {
                     src: "/down-arrow-svgrepo-com.svg",
-                    alt: "↓"
+                    alt: ""
                 })
             }), N.jsx("img", {
                 className: "title-wave",
@@ -7512,7 +7505,7 @@ const ud = () => {
                     children: "About Us"
                 }),
                 N.jsx("p", {
-                    children: "GenCore Biology is a 501(c)(3) sponsored nonprofit organization. Our mission is to give students and minorities in underprivileged areas fair access to comprehensive biology information, thereby empowering them. Our goals are to inspire the upcoming generation of diverse scientists and innovators, promote academic excellence, and close the educational gap."
+                    children: "GenCore Biology's mission is to give students and minorities in underprivileged areas fair access to comprehensive biology information, thereby empowering them. Our goals are to inspire the upcoming generation of diverse scientists and innovators, promote academic excellence, and close the educational gap."
                 }),
                 N.jsxs("div", {
                     className: "card-section",
@@ -7635,36 +7628,6 @@ const ud = () => {
                                 }),
                                 N.jsx("h3", {
                                     children: "President"
-                                }),
-                                N.jsx("p", {})
-                            ]
-                        }),
-                        N.jsxs("div", {
-                            className: "creator-card",
-                            children: [
-                                N.jsx("img", {
-                                    className: "creator-card-icon",
-                                    src: "/River-Riley-Headshot.jpg",
-                                    alt: "River Riley"
-                                }),
-                                N.jsx("h1", {
-                                    children: N.jsx("a", {
-                                        href: "https://www.linkedin.com/in/river-riley-9336842b5/",
-                                        target: "_blank",
-                                        rel: "noopener noreferrer",
-                                        children: "River Riley"
-                                    })
-                                }),
-                                N.jsx("h2", {
-                                    children: N.jsx("a", {
-                                        href: "https://www.ncsu.edu/",
-                                        target: "_blank",
-                                        rel: "noopener noreferrer",
-                                        children: "NC State"
-                                    })
-                                }),
-                                N.jsx("h3", {
-                                    children: "Chief Technical Officer (CTO)"
                                 }),
                                 N.jsx("p", {})
                             ]
@@ -7806,13 +7769,6 @@ const ud = () => {
                     rel: "noopener noreferrer",
                     children: [N.jsx(cd, {}), N.jsx("span", {
                         children: "Start a Chapter"
-                    })]
-                }), N.jsxs("a", {
-                    href: "https://hcb.hackclub.com/donations/start/gcbiology",
-                    target: "_blank",
-                    rel: "noopener noreferrer",
-                    children: [N.jsx(hd, {}), N.jsx("span", {
-                        children: "Support Our Work"
                     })]
                 })]
             })]

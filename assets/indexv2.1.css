@@ -107,6 +107,7 @@
 }
 
 .title-scroll-down img {
+  display: block;
   width: 30px;
   height: 30px;
   object-fit: contain;
@@ -121,7 +122,6 @@
 }
 
 .bounce {
-  display: inline-block;
   animation: bounce 3s cubic-bezier(0.25, 1.5, 0.5, 1) infinite;
 }
 
@@ -589,7 +589,7 @@
     padding: 2rem 1rem;
   }
 
-  .meet-the-creators h2 {
+  .meet-the-creators > h2 {
     font-size: 2rem;
   }
 
